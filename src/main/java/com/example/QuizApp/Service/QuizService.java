@@ -74,10 +74,8 @@ public class QuizService {
                 activeQuizResponseDto.setStartDate(quiz.getStartDate());
                 activeQuizResponseDto.setEndDate(quiz.getEndDate());
                 activeQuizResponseDtoList.add(activeQuizResponseDto);
-
             }
         }
-
         return activeQuizResponseDtoList;
     }
 

@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/quizzes")
 public class QuizController {
 
     @Autowired
     QuizService quizService;
 
-    @PostMapping("/quizzes")
+    @PostMapping
     public ResponseEntity<String> createQuiz(@RequestBody QuizRequestDto quizRequestDto) throws Exception {
         String msg = quizService.createQuiz(quizRequestDto);
         return new ResponseEntity<>(msg, HttpStatus.OK);
     }
 
-    @GetMapping("/quizzes/active")
+    @GetMapping("/active")
     public ResponseEntity<List<ActiveQuizResponseDto>> getActiveQuizzes(){
         List<ActiveQuizResponseDto> activeQuizzes = quizService.getActiveQuizzes();
         return new ResponseEntity<>(activeQuizzes,HttpStatus.OK);
@@ -32,13 +33,13 @@ public class QuizController {
 
 
 
-    @GetMapping("/quizzes/{id}/result")
+    @GetMapping("/{id}/result")
     public ResponseEntity<Integer> resultById(@PathVariable  int id) throws Exception {
         int correctOption = quizService.resultById(id);
         return new ResponseEntity<>(correctOption,HttpStatus.OK);
     }
 
-    @GetMapping("/quizzes/all")
+    @GetMapping("/all")
     public ResponseEntity<List<Quiz>> getAllQuizzes(){
         List<Quiz> quizResponseDtos = quizService.getAllQuizzes();
         return new ResponseEntity<>(quizResponseDtos,HttpStatus.OK);
@@ -48,8 +49,6 @@ public class QuizController {
 
 
 //Remaining stuff
-// Only to see result after 5 mins use cron
-
 // Implement rate-limiting to prevent abuse of the API.
 
 //    A link to the Github repository containing your application code.

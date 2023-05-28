@@ -3,7 +3,9 @@ package com.example.QuizApp.Model;
 
 import com.example.QuizApp.Enum.QuizStatus;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.type.descriptor.converter.internal.ArrayConverter;
 
@@ -12,6 +14,8 @@ import java.util.Date;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Quiz {
 
     @Id
