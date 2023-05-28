@@ -47,11 +47,3 @@ public class QuizController {
 }
 
 
-
-//Remaining stuff
-// Implement rate-limiting to prevent abuse of the API.
-
-//    A link to the Github repository containing your application code.
-//        A link to the hosted API.
-//        Video for API or postman collection with a deployed link.
-
